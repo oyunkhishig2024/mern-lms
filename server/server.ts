@@ -1,5 +1,6 @@
 import { app } from './app';
 import express, { NextFunction, Request, Response } from 'express';
+import connectDB from './utils/db';
 
 require('dotenv').config();
 
@@ -13,4 +14,5 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 // Start Server
 app.listen(process.env.PORT, () => {
   console.log(`Server is running on port ${process.env.PORT}`);
+  connectDB();
 });

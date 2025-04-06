@@ -6,6 +6,9 @@ export const app = express();
 
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
+import { ErrorMiddleware } from './middleware/error';
+
+
 
 //body parser
 
@@ -37,6 +40,8 @@ app.get("/example", async (req: Request, res: Response) => {
       res.status(500).json({ success: false, message: "Something went wrong" });
     }
   });
+
+  app.use(ErrorMiddleware);
   
 
 
